@@ -25,11 +25,12 @@
         };
        
         const localItem = JSON.parse(localStorage.getItem("currencies"));
+        const date = Number(localStorage.getItem("date"));
         const currencyTemplate = kendo.template($("#currencyTemplate").html());
         let stateArr;
 
         // loading the data
-        if (!localItem){
+        if (!localItem || !date || (Date.now() - date) > (1000 * 60 * 60 * 24)){
             let result = await getAllRates(transformedArr);
             result = result.map(r => r.data);
             stateArr = arr.map((r,i) => {
@@ -37,6 +38,7 @@
                 return {...r, value: result[i][r.name.slice(-3)]};
             }).sort((a,b) => a.value - b.value);
             localStorage.setItem("currencies", JSON.stringify(stateArr));
+            localStorage.setItem("date", Date.now());
         } else {
             console.log("loading from cache");
             stateArr = JSON.parse(localStorage.getItem("currencies"));
