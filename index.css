@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.currencies, .k-list, .k-item, .k-list-container, .k-dropdown-wrap, .k-dropdown, .k-input {
+  color: white !important;
+  background-color: steelblue !important;
+  min-width: 4rem;
+  min-height: 2rem;
+  font-size: medium;
+  border-color: steelblue;
+  border-radius: 5px;
+}
+
+.k-list>.k-state-focused.k-state-selected {
+  box-shadow: inset 0 0 3px 1px white !important;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+  min-height: 100vh;
+  background-color: steelblue;
+  color: white;
+}
+
+.heading {
+  background-color: rgb(34,73,112);
+}
+
+.groups {
+  list-style-type: none;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.count {
+  padding-top: 1rem;
+}
+
+.padding {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.group {
+  margin-right: 3rem;
+}
+
+.group p {
+  padding-bottom: 1rem;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

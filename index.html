@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kendo Currency SPA</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.3.1207/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.3.1207/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.3.1207/js/kendo.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="App">
+        <div class="heading padding">
+            <h3>Please select a currency</h3>
+            <input name="currencies" class="currencies" data-role="dropdownlist" data-text-field="name" data-value-field="value" 
+                data-bind="source: currencies, value: currency, events: { change: filterCurrencies }"
+            />         
+        </div>
+        <p class="padding">Selected currency rates: </p>
+        <div id="groups"></div>
+        <h4 class="padding">Longest count: <span data-bind="text: longestCount"></span></h4>
+       
+    <script id="currencyTemplate" type="text/x-kendo-template">
+        <ul class="groups padding">
+        # for (var i = 0; i < 3; i++) { #
+            <div class="group">
+                <p>Group #= i+1#</p>
+                #= renderGroups(data[i]) #
+                <p class="count">Count: #= data[i].length #</p>
+            </div>
+        # } #
+        </ul>
+    </script>
+    <script id="grps-template" type="text/x-kendo-template">
+        # for (var i = 0; i < data.length; i++) { #
+            <li><strong> #= data[i].name.toUpperCase() # :</strong> #= data[i].value #</li>
+        # } #
+    </script>
+    </div>
+    <script src="data.js"></script>
+</body>
+</html>
